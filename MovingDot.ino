@@ -19,12 +19,13 @@ void setup() {
   x=0;
   y=0;
   color=2;
-  enemyX = 7;
-  enemyY = 7;
+  enemyX = random (8);
+  enemyY = random (8);
   counter = 1;
 }
 
 void loop() {
+ CheckDeath();
  counter++;
  if (counter > 4)
  {
@@ -42,7 +43,6 @@ void loop() {
   MovementEnemy();
  }
  Check();
- CheckDeath();
  ColorRules();
  Color();
  ClearSlate();
@@ -147,22 +147,14 @@ void MovementEnemy() {
 }
 
 void CheckDeath() {
-  if (enemyX == x)
+  if (enemyX=x)
   {
-    if(enemyY == y)
+    if(enemyY=y)
     {
       Tone_Start(18150,500);
-      for (int i=0; i<8; i++)
-      {
-        for (int j=0; j<8; j++)
-        {
-          DrawPx(i,j,Red);
-        }
-      }
-      DisplaySlate();
       delay(5000);
-      enemyY = 7;
-      enemyX = 7;
+      enemyY = random (8);
+      enemyX = random (8);
       x=0;
       y=0;
     }
